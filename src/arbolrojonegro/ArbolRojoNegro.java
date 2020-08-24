@@ -90,7 +90,6 @@ public class ArbolRojoNegro {
             if (nodo.clave == key) {
                 z = nodo;
             }
-
             if (nodo.clave <= key) {//navega por derecha y por izquierda hasta llegar al nodo encontrado
                 nodo = nodo.hijoDerecho;
             } else {
@@ -144,7 +143,7 @@ public class ArbolRojoNegro {
                 if (s.color == 1) {//1 NEGRO
                     s.color = 0;//o ROJO
                     x.padre.color = 1;
-                    leftRotate(x.padre);
+                    RotacionIzq(x.padre);
                     s = x.padre.hijoDerecho;
                 }
 
@@ -155,14 +154,14 @@ public class ArbolRojoNegro {
                     if (s.hijoDerecho.color == 0) {
                         s.hijoIzquierdo.color = 0;
                         s.color = 1;
-                        rightRotate(s);//Se le manda de paramtro s
+                        RotacionDer(s);//Se le manda de paramtro s
                         s = x.padre.hijoDerecho;
                     }
 
                     s.color = x.padre.color;
                     x.padre.color = 0;
                     s.hijoDerecho.color = 0;
-                    leftRotate(x.padre);
+                    RotacionIzq(x.padre);
                     x = raiz;
                 }
             } else {
@@ -170,7 +169,7 @@ public class ArbolRojoNegro {
                 if (s.color == 1) {
                     s.color = 0;
                     x.padre.color = 1;
-                    rightRotate(x.padre);
+                    RotacionDer(x.padre);
                     s = x.padre.hijoIzquierdo;
                 }
 
@@ -181,14 +180,14 @@ public class ArbolRojoNegro {
                     if (s.hijoIzquierdo.color == 0) {
                         s.hijoDerecho.color = 0;
                         s.color = 1;
-                        leftRotate(s);
+                        RotacionIzq(s);
                         s = x.padre.hijoIzquierdo;
                     }
 
                     s.color = x.padre.color;
                     x.padre.color = 0;
                     s.hijoIzquierdo.color = 0;
-                    rightRotate(x.padre);
+                    RotacionDer(x.padre);
                     x = raiz;
                 }
             }
@@ -210,11 +209,11 @@ public class ArbolRojoNegro {
                 } else {
                     if (k == k.padre.hijoIzquierdo) {
                         k = k.padre;
-                        rightRotate(k);
+                        RotacionDer(k);
                     }
                     k.padre.color = 0;
                     k.padre.padre.color = 1;
-                    leftRotate(k.padre.padre);
+                    RotacionIzq(k.padre.padre);
                 }
             } else {
                 u = k.padre.padre.hijoDerecho;
@@ -227,11 +226,11 @@ public class ArbolRojoNegro {
                 } else {
                     if (k == k.padre.hijoDerecho) {
                         k = k.padre;
-                        leftRotate(k);
+                        RotacionIzq(k);
                     }
                     k.padre.color = 0;
                     k.padre.padre.color = 1;
-                    rightRotate(k.padre.padre);
+                    RotacionDer(k.padre.padre);
                 }
             }
             if (k == raiz) {
@@ -327,7 +326,7 @@ public class ArbolRojoNegro {
     }
 
     //rotacion a la izquierda
-    public void leftRotate(Nodo x) {//recibe un nodo de tipo Nodo que se llamara x
+    public void RotacionIzq(Nodo x) {//recibe un nodo de tipo Nodo que se llamara x
         Nodo y = x.hijoDerecho;//Puntero del tipo Nodo que se llamara y
         x.hijoDerecho = y.hijoIzquierdo;//tiene un hijo izquierdo y lo dejamos como hijo derecho de x - no perderlo
         if (y.hijoIzquierdo != NULL) {
@@ -346,7 +345,7 @@ public class ArbolRojoNegro {
     }
 
     //rotacion a la derecha
-    public void rightRotate(Nodo x) {//x:nodo actual
+    public void RotacionDer(Nodo x) {//x:nodo actual
         Nodo y = x.hijoIzquierdo;//x lo apuntamos hacia el hijo izquierdo
         x.hijoIzquierdo = y.hijoDerecho;//tiene un hijo derecho y lo dejamos como hijo izquierdo de x - no perderlo
         if (y.hijoDerecho != NULL) {
