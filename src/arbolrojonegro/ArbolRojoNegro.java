@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /*
     author AndresFWilT
     Angie Peña
-    Sair Ramos
+    Sair Barrios
  */
 class Nodo {
 

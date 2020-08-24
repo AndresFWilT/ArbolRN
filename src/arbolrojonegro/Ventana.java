@@ -12,7 +12,7 @@ import javax.swing.JTextField;
 /*
 author AndresFWilT
 Angie Peña
-Sair Ramos
+Sair Barrios
  */
 public class Ventana extends JFrame {
 

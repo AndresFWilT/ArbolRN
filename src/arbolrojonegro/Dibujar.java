@@ -7,7 +7,7 @@ import javax.swing.JPanel;
     /*
         author AndresFWilT
         Angie Peña
-        Sair Ramos
+        Sair Barrios
     */
 public class Dibujar {
 
